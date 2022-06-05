@@ -79,7 +79,7 @@ def transfer(sender_account_nr, receiver_account_nr, amount):
         balance = int(data["balance"])
         amount = int(amount)
         if balance >= amount:
-            if os.path.isfile(f"{receiver_account_nr}.pkl"):
+            if os.path.isfile(f"accounts\{receiver_account_nr}.pkl"):
                 receiver_data = get_file_content(receiver_account_nr)
                 receiver_balance = int(receiver_data["balance"])
                 data["balance"] = balance - amount
