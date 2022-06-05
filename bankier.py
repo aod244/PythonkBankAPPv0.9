@@ -39,9 +39,14 @@ Proszę podaj nową wartość: """)
         else:
             print("Podany numer konta nie istnieje w naszej bazie danych.")
     elif choice == "3":
-        dane = get_file_content(input("Proszę podaj numer konta użytkownika: "))
-        for element in dane:
-            print(f"{element} = {dane[element]}")
+        account_number = input("Proszę podaj numer konta użytkownika: ")
+        if os.path.isfile(f"accounts{account_number}.pkl"):
+            dane = get_file_content(account_number)
+            for element in dane:
+                print(f"{element} = {dane[element]}")
+        else:
+            print("Wybrane konto nie istnieje...")
+        
     elif choice == "4":
         print("Aplikacja się zamyka, dziękuję za skorzystanie z naszych usług!")
         continue_connection = False
